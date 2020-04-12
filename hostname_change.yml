@@ -1,0 +1,26 @@
+---
+
+
+- name: Configuring Logging on IOS devices
+  hosts: all
+  gather_facts: false
+  connection: local
+
+  vars:
+    cli:
+      username: cisco
+      password: cisco
+      authorize: yes 
+      auth_pass: cisco
+      timeout: 100
+
+  tasks:
+    - name: Logging on IOS
+      ios_config:
+        provider: "{{ cli }}"
+        lines: hostname {{hostname.name}}
+
+      register: print_output
+
+    -  debug: var=print_output
+
