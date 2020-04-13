@@ -1,2 +1,6 @@
-[nodes]
-node1 ansible_host=100.100.100.9
+[NXOS]
+remote-dist-switch ansible_host=100.100.100.16
+remote-switch ansible_host=100.100.100.15
+remote-rtr02 ansible_host=100.100.100.19
+remote-rtr01 ansible_host=100.100.100.11
+
