@@ -20,3 +20,4 @@
           - configure terminal
           - license grace-period 
           - feature bgp
+          - feature ospf
