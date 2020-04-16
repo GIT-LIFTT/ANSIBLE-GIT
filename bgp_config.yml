@@ -15,8 +15,15 @@
   tasks:
     - name: NXOS TIME BABY
       nxos_command:
-        provider: "{{cli}}"
         commands: 
           - configure terminal
           - license grace-period 
-          - feature {{ protocol }}
+          - feature bgp
+          - feature ospf
+          - hostname {{hostname}}
+
+    - nxos_bgp_neighbor:
+        asn: 200 
+        description: "BGP SETUP VIA ANSIBLE"
+        neighbor: 1.1.1.1
+        state: present
