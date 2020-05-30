@@ -2,3 +2,9 @@
 
 hostname:
   name: remote-dist-switch
+
+interfaces:
+- address: 10.0.1.0
+  description: leaf1
+  interface: Ethernet2/1
+  mask: /31

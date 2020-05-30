@@ -1,0 +1,14 @@
+---
+
+
+- name: MSDP-LAB
+  hosts: NXOS
+  connection: local
+  gather_facts: false
+  
+  tasks:
+    - name: running the command 
+      nxos_config:
+        timeout: 150  
+        src: interfaces.j2
+        

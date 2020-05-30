@@ -1,0 +1,13 @@
+---
+
+
+- name: MSDP-LAB
+  gather_facts: false
+  hosts: NXOS
+  connection: local
+
+  tasks:
+    - name: Template a file to /etc/files.conf
+      template:
+        src: interfaces.j2
+        dest: TemplateResult
