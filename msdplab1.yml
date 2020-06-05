@@ -7,8 +7,7 @@
   gather_facts: false
   
   tasks:
-    - name: running the command 
+    - name: configuring the interfaces  
       nxos_config:
         timeout: 150  
-        src: interfaces.j2
-        
+        src: bgp_builder.j2

@@ -7,9 +7,9 @@ interface {{ intf.interface }}
   no switchport
   {% endif %}
   ip address {{ intf.address }}{{ intf.mask }}
-  mtu 9214
+  ip pim sparse-mode
   no shutdown
+  no mac-address
   exit
 !
 {% endfor %}
-interface Loopback0

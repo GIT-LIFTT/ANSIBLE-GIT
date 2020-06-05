@@ -9,5 +9,5 @@
   tasks:
     - name: Template a file to /etc/files.conf
       template:
-        src: interfaces.j2
+        src: bgp_builder.j2
         dest: TemplateResult

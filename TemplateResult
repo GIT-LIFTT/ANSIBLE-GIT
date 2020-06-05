@@ -1,9 +1,14 @@
-interface Ethernet1
-    description leaf1
-      no switchport
-    ip address 10.0.1.0/31
-  mtu 9214
-  no shutdown
-  exit
-!
-interface Loopback0
+
+prefix config 
+ip prefix-list prefixlist-ospf-to-bgp seq 10 permit 0.0.0.0/0 le 32
+
+route-map route-map-ospf-to-bgp permit 10
+  match ip address prefix-list prefixlist-ospf-to-bgp
+
+router bgp 10
+   neighbor 192.168.1.2 remote-as 11
+   address-family ipv4 unicast
+
+address-family ipv4 unicast
+redistribute ospf 1 route-map route-map-ospf-to-bgp
+
