@@ -21,7 +21,11 @@ interfaces:
   mask: /32
   interface: Loopback0
 msdp_peer: 11.11.11.11
+msdp_peer1_remote_as: 11
 asn: 10
 bgp_neighbors:
 - neighbor: 192.168.1.2
   remote_as: 11
+local_rp_address: 10.10.10.10
+local_rp_mask: 255.255.255.255
+

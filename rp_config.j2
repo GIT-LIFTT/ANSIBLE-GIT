@@ -2,7 +2,7 @@ feature msdp
 ip pim rp-candidate Loopback0 group 239.0.0.0/8
 ip pim bsr-candidate Loopback0 hash-len 0 priority 100 
 !
-ip msdp peer {{ msdp_peer }} connect-source Loopback0 remote-as 10
+ip msdp peer {{ msdp_peer }} connect-source Loopback0 remote-as {{ msdp_peer1_remote_as }}
 ip msdp originator-id Loopback0
 
 ip prefix-list prefixlist-ospf-to-bgp seq 10 permit 0.0.0.0/0 le 32
@@ -20,4 +20,4 @@ exit
 exit
 address-family ipv4 unicast
 redistribute ospf 1 route-map route-map-ospf-to-bgp
-
+network {{ local_rp_address }} mask {{ local_rp_mask }}
