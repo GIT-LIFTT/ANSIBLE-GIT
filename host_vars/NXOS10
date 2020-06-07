@@ -1,13 +1,26 @@
+hostname: NXOS10
 interfaces:
-- address: 20.20.30.2
-  description: NXOS4 e2/2
-  interface: Ethernet2/1
+- address: 192.168.1.1
+  description: NXOS11_e2/1
+  interface: Ethernet2/3
+  pimdomain: enabled
   mask: /29
-- address: 20.20.10.1
-  description: NXOS6 e2/2
+- address: 10.10.30.2
+  description: NXOS14_e2/2
   interface: Ethernet2/2
   mask: /29
-
+  ospf: enabled
+- address: 10.10.20.2
+  description: NXOS9_e2/2
+  interface: Ethernet2/1
+  mask: /29
+  ospf: enabled
+- address: 10.10.10.10
+  description: RP_LOOPBACK
+  ospf: enabled
+  mask: /32
+  interface: Loopback0
+msdp_peer: 11.11.11.11
 asn: 10
 bgp_neighbors:
 - neighbor: 192.168.1.2

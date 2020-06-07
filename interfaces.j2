@@ -1,3 +1,4 @@
+!
 {% for intf in interfaces %}
 interface {{ intf.interface }}
   {% if intf.description is defined %}
@@ -5,11 +6,17 @@ interface {{ intf.interface }}
   {% endif %}
   {% if 'Ethernet' in intf.interface %}
   no switchport
+  no mac-address
   {% endif %}
   ip address {{ intf.address }}{{ intf.mask }}
   ip pim sparse-mode
   no shutdown
-  no mac-address
+  {% if intf.ospf is defined %}
+  ip router ospf 1 area 0
+  {% endif %}
+  {% if intf.pimdomain is defined %}
+  ip pim border
+  {% endif %}
   exit
 !
 {% endfor %}

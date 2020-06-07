@@ -3,11 +3,11 @@
 
 - name: MSDP-LAB
   gather_facts: false
-  hosts: NXOS
+  hosts: NXOS10
   connection: local
 
   tasks:
     - name: Template a file to /etc/files.conf
       template:
-        src: bgp_builder.j2
+        src: interfaces.j2
         dest: TemplateResult

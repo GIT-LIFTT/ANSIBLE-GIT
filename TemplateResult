@@ -1,14 +1,17 @@
-
-prefix config 
-ip prefix-list prefixlist-ospf-to-bgp seq 10 permit 0.0.0.0/0 le 32
-
-route-map route-map-ospf-to-bgp permit 10
-  match ip address prefix-list prefixlist-ospf-to-bgp
-
-router bgp 10
-   neighbor 192.168.1.2 remote-as 11
-   address-family ipv4 unicast
-
-address-family ipv4 unicast
-redistribute ospf 1 route-map route-map-ospf-to-bgp
-
+interface Ethernet2/1
+      no switchport
+    ip address 20.20.30.2/29
+  ip pim sparse-mode
+  no shutdown
+  no mac-address
+  exit
+!
+interface Ethernet2/2
+    description NXOS6 e2/2
+      no switchport
+    ip address 20.20.10.1/29
+  ip pim sparse-mode
+  no shutdown
+  no mac-address
+  exit
+!

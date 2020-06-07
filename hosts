@@ -1,7 +1,11 @@
 [NXOS]
-NXOS9 ansible_host=200.100.100.8
+NXOS09 ansible_host=200.100.100.8
 NXOS10 ansible_host=200.100.100.6
 NXOS14 ansible_host=200.100.100.7
 NXOS11 ansible_host=200.100.100.5
 NXOS13 ansible_host=200.100.100.4
 NXOS12 ansible_host=200.100.100.3
+
+[RPS]
+NXOS10 ansible_host=200.100.100.6
+NXOS11 ansible_host=200.100.100.5

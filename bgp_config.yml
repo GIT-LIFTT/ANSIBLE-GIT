@@ -20,6 +20,7 @@
           - license grace-period 
           - feature bgp
           - feature ospf
+          - feature pim
           - hostname {{hostname}}
 
     - nxos_bgp_neighbor:

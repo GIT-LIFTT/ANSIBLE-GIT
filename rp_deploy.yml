@@ -1,0 +1,13 @@
+---
+
+
+- name: MSDP-LAB
+  hosts: RPS
+  connection: local
+  gather_facts: false
+  
+  tasks:
+    - name: configuring rp's  
+      nxos_config:
+        timeout: 150  
+        src: rp_config.j2
